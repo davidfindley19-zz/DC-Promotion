@@ -33,14 +33,14 @@ $HardwareInformation = Get-CimInstance Win32_ComputerSystem -ComputerName $Compu
 $MemoryInformation = [math]::Round((Get-WmiObject -Class Win32_ComputerSystem -ComputerName $ComputerName).TotalPhysicalMemory/1GB)
 $ProcessorInformation = Get-CimInstance Win32_Processor -ComputerName $ComputerName | Select-Object *
 
-Write-Host "System Name:"$ComputerName -ForegroundColor White
-Write-Host "Manufactured by:"$HardwareInformation.Manufacturer -ForegroundColor White
-Write-Host "Hardware Model:"$HardwareInformation.Model -ForegroundColor White
-Write-Host "Processor:"$ProcessorInformation.Name -ForegroundColor White
-Write-Host "Installed RAM:"$MemoryInformation "GB" -ForegroundColor White
-Write-Host "Domain:"$HardwareInformation.Domain -ForegroundColor White
-Write-Host "OS Version:"$OperatingSystem.Caption -ForegroundColor White
-Write-Host "OS Architecture:"$OperatingSystem.OSArchitecture -ForegroundColor White
+Write-Host "System Name:"$ComputerName 
+Write-Host "Manufactured by:"$HardwareInformation.Manufacturer 
+Write-Host "Hardware Model:"$HardwareInformation.Model 
+Write-Host "Processor:"$ProcessorInformation.Name 
+Write-Host "Installed RAM:"$MemoryInformation "GB" 
+Write-Host "Domain:"$HardwareInformation.Domain 
+Write-Host "OS Version:"$OperatingSystem.Caption 
+Write-Host "OS Architecture:"$OperatingSystem.OSArchitecture 
 
 Do {
     Write-Host `n"Based on the hardware configuration above, would you like to continue with the DC Promotion?" -ForegroundColor Yellow
